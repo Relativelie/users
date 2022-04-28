@@ -16,7 +16,8 @@
         "ecmaVersion": "latest",
         "sourceType": "module",
         "project": [
-            "./tsconfig.json"
+            "./tsconfig.json",
+            "./tsconfig.eslint.json"
         ]
     },
     "plugins": [
@@ -29,5 +30,10 @@
         "react/jsx-indent-props": "off",
         "react/jsx-indent": "off",
         "react/react-in-jsx-scope": "off"
+    },
+    "settings": { 
+        "import/resolver" : { 
+        "node" : { }
+        } 
     }
 }
