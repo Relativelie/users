@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:react-hooks/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": [
+            "./tsconfig.json"
+        ]
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/indent": "off",
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "react/jsx-indent-props": "off",
+        "react/jsx-indent": "off",
+        "react/react-in-jsx-scope": "off"
+    }
+}
