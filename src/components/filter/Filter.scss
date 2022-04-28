@@ -1,0 +1,19 @@
+@import "../../variables";
+
+.filter {
+    grid-area: filtering;
+    display: flex;
+    flex-direction: column;
+    gap: 10.05px;
+    padding-left: 20.27px;
+    padding-top: 35.17px;
+    background-color: #BDBDBD;
+}
+
+.filter__header, .filter__button {
+    @include textStyle();
+}
+
+.filter__button {
+    @include buttons($height: 24.12px);
+}

@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 665px;
+    display: grid;
+    grid-template-areas: "filtering listElements";
+    grid-template-columns: 152px 1fr;
+    height: 100vh;
+}

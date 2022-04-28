@@ -28,8 +28,16 @@
         "@typescript-eslint/indent": "off",
         "indent": ["error", 4, { "SwitchCase": 1 }],
         "react/jsx-indent-props": "off",
+        "no-useless-return": "off",
         "react/jsx-indent": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "import/prefer-default-export": "off",
+        "@typescript-eslint/default-param-last": "off",
+        "no-plusplus": "off",
+        "react/function-component-definition": "off",
+        "arrow-body-style": "off",
+        "max-len": "off",
+        "react/no-array-index-key": "off"
     },
     "settings": { 
         "import/resolver" : { 

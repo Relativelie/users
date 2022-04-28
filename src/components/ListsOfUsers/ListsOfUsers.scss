@@ -1,0 +1,63 @@
+@import "../../variables";
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 59px 0 34px;
+    overflow: auto;
+}
+
+.list__header {
+    @include header();
+}
+
+.list__resultCount {
+    @include textStyle();
+    text-align: right;
+}
+
+.list__element {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    box-sizing: border-box;
+    width: 420px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #F3F3F3;
+
+    & .list__elementContent,
+    .list__more {
+        font-weight: 400;
+        font-family: $fontFamily;
+        font-style: normal;
+    }
+
+    & .list__elementContent {
+        margin-top: 0;
+        font-size: 11px;
+        line-height: 13px;
+
+        &:not(:last-child) {
+            margin-bottom: 7px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        & .list__elementContentTitle {
+            margin-right: 7px;
+            color: #A3A3A3;
+        }
+    }
+
+    & .list__more {
+        align-self: end;
+        margin: 0;
+        font-size: 12px;
+        line-height: 14px;
+        color: #4B51EF;
+        cursor: pointer;
+    }
+}
