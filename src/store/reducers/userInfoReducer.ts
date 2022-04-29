@@ -2,6 +2,7 @@ import { UserInfoState, UserInfoAction, UserInfoActionTypes } from '../../types/
 
 const initialState: UserInfoState = {
     isEditingMode: false,
+    isEmptyField: [],
 };
 
 export const userInfoReducer = (state = initialState, action: UserInfoAction): UserInfoState => {
@@ -16,6 +17,14 @@ export const userInfoReducer = (state = initialState, action: UserInfoAction): U
             return {
                 ...state,
                 isEditingMode: false,
+            };
+        }
+        case UserInfoActionTypes.ACCUMULATE_CHECKING_VALUES: {
+            const emptyFields = state.isEmptyField;
+            emptyFields.push(action.value);
+            return {
+                ...state,
+                isEmptyField: emptyFields,
             };
         }
         default:

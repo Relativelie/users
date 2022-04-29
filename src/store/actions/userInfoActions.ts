@@ -7,3 +7,8 @@ export const turnOnEditMode = ():UserInfoAction => ({
 export const turnOffEditMode = ():UserInfoAction => ({
     type: UserInfoActionTypes.TURN_OFF_EDIT_MODE,
 });
+
+export const accumulateCheckingValues = (value: boolean):UserInfoAction => ({
+    type: UserInfoActionTypes.ACCUMULATE_CHECKING_VALUES,
+    value,
+});
