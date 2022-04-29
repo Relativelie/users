@@ -13,7 +13,7 @@ export const ZipCode = () => {
 
     return (
         <div>
-            <label htmlFor="">
+            <label htmlFor="zip code">
                 Zip Code
             </label>
             <input

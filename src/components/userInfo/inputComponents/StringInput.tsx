@@ -7,11 +7,13 @@ type Props = {
 export const StringInput:FC<Props> = ({ labelText }) => {
     return (
         <div>
-            <label htmlFor="">
+            <label htmlFor={labelText}>
                 {labelText}
             </label>
             <input
+                className={'Comment' && labelText.toLowerCase()}
                 type="text"
+                placeholder={labelText}
             />
         </div>
 

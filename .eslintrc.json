@@ -37,7 +37,8 @@
         "react/function-component-definition": "off",
         "arrow-body-style": "off",
         "max-len": "off",
-        "react/no-array-index-key": "off"
+        "react/no-array-index-key": "off",
+        "no-else-return": "off"
     },
     "settings": { 
         "import/resolver" : { 

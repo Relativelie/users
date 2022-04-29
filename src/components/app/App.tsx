@@ -4,14 +4,15 @@ import { Filter } from '../filter/Filter';
 import { UserInfo } from '../userInfo/UserInfo';
 
 function App() {
-    
-    const activePage = 
+    // const activePage =
     return (
         <div className="App">
             <div className="container">
                 <Filter />
-                { if (true) return <ListsOfUsers />
-                else return <UserInfo />}
+                <main className="container__info">
+                    <UserInfo />
+                </main>
+
             </div>
         </div>
     );
