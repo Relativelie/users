@@ -1,11 +1,8 @@
 import { useState, MouseEvent } from 'react';
-import { Email } from './inputComponents/Email';
-import { Phone } from './inputComponents/Phone';
-import { StringInput } from './inputComponents/StringInput';
-import { Website } from './inputComponents/Website';
-import { ZipCode } from './inputComponents/ZipCode';
+import { InputField } from './inputComponents/InputField';
 
-import './userInfo.scss';
+import './UserInfo.scss';
+import { userInfoContent } from './UserInfoContent';
 
 export const UserInfo = () => {
     const [isCorrectForm, setIsCorrectForm] = useState(true);
@@ -26,22 +23,24 @@ export const UserInfo = () => {
     };
 
     return (
-        <section>
-            <h3>Профиль пользователя</h3>
+        <section className="userInfo">
+            <h3 className="userInfo__header">Профиль пользователя</h3>
             <form action="some url">
-                <StringInput labelText="Name" />
-                <StringInput labelText="User name" />
-                <Email />
-                <StringInput labelText="Street" />
-                <StringInput labelText="City" />
-                <ZipCode />
-                <Phone />
-                <Website />
-                <StringInput labelText="Comment" />
-                <button
-                    type="button"
-                    onClick={(e) => sendUserForm(e)}
-                >
+                <div className="userInfo__form">
+                    {userInfoContent.map((inputField) => {
+                        const { id, name, type, required } = inputField;
+                        return (
+                            <InputField
+                                key={`inputField-${id}`}
+                                labelText={name}
+                                required={required}
+                                type={type}
+                            />
+                        );
+                    })}
+                </div>
+
+                <button type="button" onClick={(e) => sendUserForm(e)}>
                     Отправить
                 </button>
             </form>

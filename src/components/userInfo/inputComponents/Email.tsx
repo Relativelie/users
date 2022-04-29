@@ -22,7 +22,7 @@ export const Email: FC = () => {
     };
 
     return (
-        <div>
+        <div className="">
             <label htmlFor="">
                 E-mail
             </label>

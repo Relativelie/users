@@ -1,0 +1,34 @@
+@import "../../../variables";
+
+.inputFieldContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputFieldContainer__input,
+.inputFieldContainer__label {
+    font-family: $fontFamily;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inputFieldContainer__input {
+    width: 211px;
+    padding: 5px;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    font-size: 10px;
+    line-height: 12px;
+}
+
+.inputFieldContainer__label {
+    margin-bottom: 3px;
+    font-size: 8px;
+    line-height: 9px;
+}
+
+.inputFieldContainer__input.comment {
+    box-sizing: border-box;
+    width: 100%;
+    height: 55px;
+}
