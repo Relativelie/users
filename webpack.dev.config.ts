@@ -13,6 +13,7 @@ const config: Configuration = {
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, 'dist'),
+        publicPath: '/',
     },
     entry: './src/index.tsx',
     module: {
@@ -59,9 +60,9 @@ const config: Configuration = {
     ],
     devtool: 'inline-source-map',
     devServer: {
-        static: path.join(__dirname, 'build'),
+        static: path.join(__dirname, './dist'),
         historyApiFallback: true,
-        port: 4001,
+        port: 4002,
         open: true,
     },
 };

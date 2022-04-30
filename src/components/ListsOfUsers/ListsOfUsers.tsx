@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { data } from '../../data/data';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
@@ -37,12 +38,13 @@ export const ListsOfUsers = () => {
                                     {company.name}
                                 </p>
                             </div>
-                            <p
+                            <Link
+                                to={`user/${id}`}
                                 className="list__more"
                                 onClick={() => openUserInfo(id)}
                             >
                                 Подробнее
-                            </p>
+                            </Link>
                         </div>
                     );
                 })}

@@ -39,7 +39,8 @@
         "max-len": "off",
         "react/no-array-index-key": "off",
         "no-else-return": "off",
-        "object-curly-newline": "off"
+        "object-curly-newline": "off",
+        "@typescript-eslint/no-use-before-define": "off"
     },
     "settings": { 
         "import/resolver" : { 

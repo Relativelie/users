@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ListsOfUsers } from '../ListsOfUsers/ListsOfUsers';
 import { Filter } from '../filter/Filter';
 import { UserInfo } from '../userInfo/UserInfo';
@@ -11,13 +12,19 @@ function App() {
 
     return (
         <div className="App">
-            <div className="container">
-                <Filter />
-                <main className="container__info">
-                    {isOpenListCard ? <UserInfo /> : <ListsOfUsers />}
-                </main>
-
-            </div>
+            <Router>
+                <div className="container">
+                    <Filter />
+                    <main className="container__info">
+                        <Routes>
+                            <Route path="/" element={<ListsOfUsers />} />
+                            <Route path="/user/:id" element={<UserInfo />} />
+                            <Route path="*" element={<Navigate to="/" />} />
+                        </Routes>
+                        {/* {isOpenListCard ? <UserInfo /> : <ListsOfUsers />} */}
+                    </main>
+                </div>
+            </Router>
         </div>
     );
 }

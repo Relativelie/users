@@ -1,4 +1,5 @@
 import { useEffect, FormEvent, useState, MutableRefObject, useRef, FC } from 'react';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import './InputField.scss';
 
 type Props = {
@@ -12,6 +13,9 @@ type Props = {
 export const InputField: FC<Props> = ({ labelText, required, type, filledValue, catchInputValueChange }) => {
     const inputValue = useRef() as MutableRefObject<HTMLInputElement>;
     const [isEmptyInput, setIsEmptyInput] = useState(false);
+    const { isDisabled } = useTypedSelector(
+        (userInfoState) => userInfoState.userInfoReducer,
+    );
     const warningClass = isEmptyInput
         ? 'inputFieldContainer__input_warning-for-emptiness'
         : '';
@@ -21,12 +25,13 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
     const commentClass = labelText === 'Comment' ? 'inputFieldContainer__input_comment' : '';
 
     useEffect(() => {
+        // Open user card.
         inputValue.current.value = filledValue;
     }, []);
 
     useEffect(() => {
+        // Validate values for emptiness when open user card.
         if (labelText !== 'Comment') {
-            // eslint-disable-next-line @typescript-eslint/no-use-before-define
             validateValue();
         }
     }, []);
@@ -67,6 +72,7 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
                 onBlur={(e) => valueProcessing(e, e.type)}
                 onKeyUp={(e) => valueProcessing(e, e.key)}
                 data-inputname={labelText.toLocaleLowerCase()}
+                disabled={isDisabled}
             />
         </div>
     );
