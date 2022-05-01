@@ -1,13 +1,14 @@
 import { SendRequestAction, SendRequestActionTypes, SendRequestState } from '../../types/sendRequestTypes';
 
 const initialState: SendRequestState = {
-    isSendFormLoading: false,
-    isSendFormSuccess: false,
-    isSendFormFatal: false,
-    isSendFormError: false,
-    sendFormSuccessText: 'Форма отправлена',
-    sendFormErrorText: 'Something went wrong...',
+    isRequestLoading: false,
+    isRequestSuccess: false,
+    isRequestFatal: false,
+    isRequestError: false,
+    requestSuccessText: 'Форма отправлена',
+    requestErrorText: 'Something went wrong...',
     errorCode: null,
+    shownRequestResult: ""
 };
 
 export const sendRequestReducer = (state = initialState, action: SendRequestAction): SendRequestState => {
@@ -15,35 +16,47 @@ export const sendRequestReducer = (state = initialState, action: SendRequestActi
         case SendRequestActionTypes.SEND_REQUEST_BEGIN: {
             return {
                 ...state,
-                isSendFormLoading: true,
+                isRequestLoading: true,
             };
         }
         case SendRequestActionTypes.SEND_REQUEST_SUCCESS: {
             return {
                 ...state,
-                isSendFormSuccess: true,
-                isSendFormLoading: false,
-                isSendFormFatal: false,
-                isSendFormError: false,
+                isRequestSuccess: true,
+                isRequestLoading: false,
+                isRequestFatal: false,
+                isRequestError: false,
             };
         }
         case SendRequestActionTypes.SEND_REQUEST_ERROR: {
             return {
                 ...state,
-                isSendFormError: true,
+                isRequestError: true,
                 errorCode: action.value,
-                isSendFormLoading: false,
-                isSendFormSuccess: false,
-                isSendFormFatal: false,
+                isRequestLoading: false,
+                isRequestSuccess: false,
+                isRequestFatal: false,
             };
         }
         case SendRequestActionTypes.SEND_REQUEST_FATAL: {
             return {
                 ...state,
-                isSendFormFatal: true,
-                isSendFormLoading: false,
-                isSendFormSuccess: false,
+                isRequestFatal: true,
+                isRequestLoading: false,
+                isRequestSuccess: false,
             };
+        }
+
+        case SendRequestActionTypes.SHOW_REQUEST_RESULT: {
+            let resultOfRequest;
+            if (state.isRequestSuccess) resultOfRequest = state.requestSuccessText;
+            else if (state.isRequestError) resultOfRequest = `${state.requestErrorText} code: ${state.errorCode}`;
+            else if (state.isRequestFatal) resultOfRequest =  state.requestErrorText;
+            else resultOfRequest = ""
+            return {
+                ...state,
+                shownRequestResult: resultOfRequest
+            }
         }
         default:
             return state;

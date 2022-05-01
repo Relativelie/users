@@ -12,3 +12,4 @@ export const changeBtnAvailability = (value:boolean):UserInfoAction => ({
     type: UserInfoActionTypes.CHANGE_BUTTON_AVAILABILITY,
     value,
 });
+

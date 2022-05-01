@@ -1,5 +1,6 @@
 import { useEffect, FormEvent, useState, MutableRefObject, useRef, FC } from 'react';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useActions } from '../../../../hooks/useActions';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import './InputField.scss';
 
 type Props = {
@@ -7,18 +8,21 @@ type Props = {
     type: string;
     required: boolean;
     filledValue: string;
-    catchInputValueChange: Function;
+    catchInputValueChange: Function
 };
 
 export const InputField: FC<Props> = ({ labelText, required, type, filledValue, catchInputValueChange }) => {
     const inputValue = useRef() as MutableRefObject<HTMLInputElement>;
     const [isEmptyInput, setIsEmptyInput] = useState(false);
-    const { isDisabledForm } = useTypedSelector(
+    const { isDisabledForm, isDisabledSendBtn } = useTypedSelector(
         (userInfoState) => userInfoState.userInfoReducer,
     );
-    const warningClass = isEmptyInput
-        ? 'inputFieldContainer__input_warning-for-emptiness'
-        : '';
+
+
+    const [warningClass, setWarningClass] = useState('')
+    // const warningClass = isEmptyInput
+    //     ? 'inputFieldContainer__input_warning-for-emptiness'
+    //     : '';
 
     // Differences for the comment field.
     const placeholderText = labelText === 'Comment' ? '' : labelText;
@@ -35,6 +39,20 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
             validateValue();
         }
     }, []);
+
+    useEffect(() => {
+        if (isEmptyInput) {
+            setWarningClass('inputFieldContainer__input_warning-for-emptiness')
+        } else setWarningClass('')
+        console.log("inputField: ", warningClass)
+
+    });
+
+    useEffect(() => {
+        catchInputValueChange();
+    },[warningClass])
+
+
 
     const validateValue = () => {
         const { value } = inputValue.current;
@@ -56,7 +74,6 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
         if (eventType === 'Enter') {
             switchByEnter(event);
         }
-        catchInputValueChange();
     };
 
     return (

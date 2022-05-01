@@ -25,6 +25,7 @@ export const userInfoReducer = (state = initialState, action: UserInfoAction): U
                 isDisabledSendBtn: action.value,
             };
         }
+
         default:
             return state;
     }

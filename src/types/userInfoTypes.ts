@@ -1,12 +1,14 @@
 export interface UserInfoState {
     isDisabledForm: boolean,
-    isDisabledSendBtn: boolean
+    isDisabledSendBtn: boolean,
+    inputValueChange: string
 }
 
 export enum UserInfoActionTypes {
     TURN_ON_EDIT_MODE = 'TURN_ON_EDIT_MODE',
     TURN_OFF_EDIT_MODE = 'TURN_OFF_EDIT_MODE',
     CHANGE_BUTTON_AVAILABILITY = 'CHANGE_BUTTON_AVAILABILITY',
+    VALIDATE_INPUT_VALUE = "VALIDATE_INPUT_VALUE",
 }
 
 interface TurnOnEditMode {
