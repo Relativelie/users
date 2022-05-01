@@ -7,3 +7,8 @@ export const turnOnEditMode = ():UserInfoAction => ({
 export const turnOffEditMode = ():UserInfoAction => ({
     type: UserInfoActionTypes.TURN_OFF_EDIT_MODE,
 });
+
+export const changeBtnAvailability = (value:boolean):UserInfoAction => ({
+    type: UserInfoActionTypes.CHANGE_BUTTON_AVAILABILITY,
+    value,
+});

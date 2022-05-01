@@ -1,7 +1,8 @@
 import { UserInfoState, UserInfoAction, UserInfoActionTypes } from '../../types/userInfoTypes';
 
 const initialState: UserInfoState = {
-    isDisabled: true,
+    isDisabledForm: true,
+    isDisabledSendBtn: false,
 };
 
 export const userInfoReducer = (state = initialState, action: UserInfoAction): UserInfoState => {
@@ -9,13 +10,19 @@ export const userInfoReducer = (state = initialState, action: UserInfoAction): U
         case UserInfoActionTypes.TURN_ON_EDIT_MODE: {
             return {
                 ...state,
-                isDisabled: false,
+                isDisabledForm: false,
             };
         }
         case UserInfoActionTypes.TURN_OFF_EDIT_MODE: {
             return {
                 ...state,
-                isDisabled: true,
+                isDisabledForm: true,
+            };
+        }
+        case UserInfoActionTypes.CHANGE_BUTTON_AVAILABILITY: {
+            return {
+                ...state,
+                isDisabledSendBtn: action.value,
             };
         }
         default:

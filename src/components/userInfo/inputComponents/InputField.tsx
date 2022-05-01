@@ -13,7 +13,7 @@ type Props = {
 export const InputField: FC<Props> = ({ labelText, required, type, filledValue, catchInputValueChange }) => {
     const inputValue = useRef() as MutableRefObject<HTMLInputElement>;
     const [isEmptyInput, setIsEmptyInput] = useState(false);
-    const { isDisabled } = useTypedSelector(
+    const { isDisabledForm } = useTypedSelector(
         (userInfoState) => userInfoState.userInfoReducer,
     );
     const warningClass = isEmptyInput
@@ -72,7 +72,7 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
                 onBlur={(e) => valueProcessing(e, e.type)}
                 onKeyUp={(e) => valueProcessing(e, e.key)}
                 data-inputname={labelText.toLocaleLowerCase()}
-                disabled={isDisabled}
+                disabled={isDisabledForm}
             />
         </div>
     );
