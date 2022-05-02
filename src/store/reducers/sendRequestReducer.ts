@@ -53,7 +53,7 @@ export const sendRequestReducer = (state = initialState, action: SendRequestActi
                 if (state.isRequestSuccess) resultOfRequest = state.requestSuccessText;
                 else if (state.isRequestError) resultOfRequest = `${state.requestErrorText} code: ${state.errorCode}`;
                 else if (state.isRequestFatal) resultOfRequest = state.requestErrorText;
-                else resultOfRequest = '';
+                else resultOfRequest = state.requestErrorText;
             } else {
                 resultOfRequest = '';
             }

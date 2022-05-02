@@ -1,16 +1,16 @@
 import { FC } from 'react';
-import { useActions } from '../../hooks/useActions';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useActions } from '../../../hooks/useActions';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
 import './Filter.scss';
 
 type Props = {
-    list: any
+    list: object
 };
 
 export const Filter:FC<Props> = ({ list }) => {
     const { allFilters, activeFilter } = useTypedSelector(
-        (listsOfUsersState) => listsOfUsersState.filterReducer,
+        (filterState) => filterState.filterReducer,
     );
     const { turnOffFilter, turnOnFilter } = useActions();
 
@@ -23,7 +23,7 @@ export const Filter:FC<Props> = ({ list }) => {
     };
 
     return (
-        <section className="filter">
+        <div className="menuBlock__filter">
             <h3 className="filter__header">Сортировка</h3>
             {Object.keys(allFilters).map((key, index) => {
                 const activeClass = 'filter__button_isActive';
@@ -40,6 +40,6 @@ export const Filter:FC<Props> = ({ list }) => {
                     </button>
                 );
             })}
-        </section>
+        </div>
     );
 };

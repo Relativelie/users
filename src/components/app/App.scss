@@ -10,7 +10,7 @@ body {
 .container {
     width: 665px;
     display: grid;
-    grid-template-areas: "filtering listElements";
+    grid-template-areas: "menu listElements";
     grid-template-columns: 152px 1fr;
     height: 100vh;
 }

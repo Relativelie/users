@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { Filter } from '../filter/Filter';
 import { ListBlock } from '../listBlock/ListBlock';
 import { CardBlock } from '../cardBlock/CardBlock';
 import './App.scss';
+import { MenuBlock } from '../menuBlock/MenuBlock';
 
 function App() {
     const { list } = useTypedSelector(
@@ -13,7 +13,7 @@ function App() {
         <div className="App">
             <Router>
                 <div className="container">
-                    <Filter list={list} />
+                    <MenuBlock list={list} />
                     <main className="container__info">
                         <Routes>
                             <Route path="/" element={<ListBlock />} />
