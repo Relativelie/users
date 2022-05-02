@@ -1,4 +1,4 @@
-export const userInfoContent = [
+export const listOfInputs = [
     {
         id: 1,
         name: 'Name',

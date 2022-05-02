@@ -2,6 +2,7 @@ $fontFamily: 'Roboto',
 sans-serif;
 $buttonsBgColor: #4B51EF;
 $buttonsFontColor: #FFFFFF;
+$activeBtnColor: #52CF4F;
 
 @mixin textStyle {
     margin: 0;
@@ -32,6 +33,6 @@ $buttonsFontColor: #FFFFFF;
     cursor: pointer;
 
     &:hover {
-        box-shadow: 0 5px 10px #ffffff;
+        box-shadow: 0 2px 7px #ffffff;
     }
 }

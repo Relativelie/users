@@ -5,9 +5,9 @@ import { InputContainer } from './InputContainer/InputContainer';
 import { SendForm } from './sendForm/SendForm';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-import './UserInfo.scss';
+import './CardBlock.scss';
 
-export const UserInfo = () => {
+export const CardBlock = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { userId } = useParams();
     const [inputValueChange, setInputValueChange] = useState(false);

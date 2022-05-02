@@ -2,19 +2,27 @@ import { useEffect } from 'react';
 import { data } from '../../data/data';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-
-import './ListsOfUsers.scss';
 import { UserCard } from './userCard/UserCard';
 
-export const ListsOfUsers = () => {
+import './ListBlock.scss';
+
+export const ListBlock = () => {
     const { saveUsersList, openUserInfo } = useActions();
     const { list } = useTypedSelector(
-        (listsOfUsersState) => listsOfUsersState.listOfUsersReducer,
+        (listsOfUsersState) => listsOfUsersState.listBlockReducer,
+    );
+    const { isFiltered, filteredList, activeFilter } = useTypedSelector(
+        (listsOfUsersState) => listsOfUsersState.filterReducer,
     );
 
     useEffect(() => {
         saveUsersList(data);
     }, []);
+
+    useEffect(() => {
+        if (isFiltered) saveUsersList(filteredList);
+        else saveUsersList(data);
+    }, [activeFilter]);
 
     return (
         <section className="list">
@@ -24,6 +32,7 @@ export const ListsOfUsers = () => {
                     const { id, name, address, company } = user;
                     return (
                         <UserCard
+                            key={id}
                             id={id}
                             name={name}
                             address={address}

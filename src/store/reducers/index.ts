@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import { listOfUsersReducer } from './listOfUsersReducer';
+import { listBlockReducer } from './listBlockReducer';
+import { filterReducer } from './filterReducer';
 import { userInfoReducer } from './userInfoReducer';
 import { sendRequestReducer } from './sendRequestReducer';
 
 export const reducers = {
-    listOfUsersReducer,
+    listBlockReducer,
+    filterReducer,
     userInfoReducer,
     sendRequestReducer,
 };

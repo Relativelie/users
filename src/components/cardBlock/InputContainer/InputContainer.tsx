@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { content } from '../../../content';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { InputField } from './inputField/InputField';
-import { userInfoContent } from '../UserInfoContent';
+import { listOfInputs } from '../../../data/listOfInputs';
+import { data } from '../../../data/data';
 
 type Props = {
     catchInputValueChange: Function,
@@ -10,7 +10,7 @@ type Props = {
 
 export const InputContainer:FC<Props> = ({ catchInputValueChange }) => {
     const { openedCardId } = useTypedSelector(
-        (listsOfUsersState) => listsOfUsersState.listOfUsersReducer,
+        (listsOfUsersState) => listsOfUsersState.listBlockReducer,
     );
 
     const findFilledValue = (card: any, inputName: string) => {
@@ -38,9 +38,9 @@ export const InputContainer:FC<Props> = ({ catchInputValueChange }) => {
 
     return (
         <div className="userInfo__form">
-            {userInfoContent.map((inputField) => {
+            {listOfInputs.map((inputField) => {
                 const { id, name, type, required, resPath } = inputField;
-                const openedCardContent = openedCardId !== null ? content[openedCardId - 1] : '';
+                const openedCardContent = openedCardId !== null ? data[openedCardId - 1] : '';
                 const filledValue = findFilledValue(openedCardContent, resPath);
                 return (
                     <InputField
