@@ -3,6 +3,9 @@ sans-serif;
 $buttonsBgColor: #4B51EF;
 $buttonsFontColor: #FFFFFF;
 $activeBtnColor: #52CF4F;
+$errorColor: #D91313;
+$disabledColor: #AFAFAF;
+$pageNameMarginBottom: 16px;
 
 @mixin textStyle {
     margin: 0;
@@ -17,14 +20,14 @@ $activeBtnColor: #52CF4F;
     margin: 0 0 16px 0;
     font-weight: 700;
     font-size: 14px;
-    line-height: 16px;
+    line-height: $pageNameMarginBottom;
     font-family: $fontFamily;
     font-style: normal;
 }
 
-@mixin buttons($height) {
+@mixin buttons($height, $width) {
     height: $height;
-    width: max-content;
+    width: $width;
     padding: 5.02px 15.2px;
     border: none;
     border-radius: 5px;
@@ -35,4 +38,9 @@ $activeBtnColor: #52CF4F;
     &:hover {
         box-shadow: 0 2px 7px #ffffff;
     }
+}
+
+@mixin pressedBtn {
+    background-color: $activeBtnColor;
+    border: 1px solid rgba(139, 139, 139, 0.543);
 }

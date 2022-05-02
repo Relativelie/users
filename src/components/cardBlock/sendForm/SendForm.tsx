@@ -5,12 +5,14 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { LoadingSpinner } from './loadingSpinner/LoadingSpinner';
 import { SendButton } from './sendButton/SendButton';
 
+import './SendForm.scss';
+
 export const SendForm = () => {
     const { sendPost } = useActions();
     const {
         isDisabledForm,
         isDisabledSendBtn,
-    } = useTypedSelector((userInfoState) => userInfoState.userInfoReducer);
+    } = useTypedSelector((cardBlockState) => cardBlockState.cardBlockReducer);
 
     const {
         isRequestLoading,
@@ -23,7 +25,7 @@ export const SendForm = () => {
         const formList = elem.form;
         const formValues: Record<string, any> = {};
         for (let i = 0; i < formList.length - 1; i++) {
-            formValues[formList[i].inputEl.dataset.inputname] = formList[i].value;
+            formValues[formList[i].dataset.inputname] = formList[i].value;
         }
         return formValues;
     };
@@ -46,13 +48,13 @@ export const SendForm = () => {
     };
 
     return (
-        <div>
-            <div>
-                <SendButton sendUserForm={sendUserForm} checkBtnAvailability={checkBtnAvailability} />
+        <div className="sendForm">
+            <div className="sendForm__container">
                 <LoadingSpinner isLoading={isRequestLoading} />
+                <SendButton sendUserForm={sendUserForm} checkBtnAvailability={checkBtnAvailability} />
             </div>
-            <p>
-                {shownRequestResult}
+            <p className="sendForm__resultText">
+                {!isDisabledForm && shownRequestResult}
             </p>
         </div>
     );

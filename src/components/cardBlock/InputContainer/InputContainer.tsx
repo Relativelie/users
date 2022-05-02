@@ -4,13 +4,15 @@ import { InputField } from './inputField/InputField';
 import { listOfInputs } from '../../../data/listOfInputs';
 import { data } from '../../../data/data';
 
+import './InputContainer.scss';
+
 type Props = {
     catchInputValueChange: Function,
 };
 
 export const InputContainer:FC<Props> = ({ catchInputValueChange }) => {
     const { openedCardId } = useTypedSelector(
-        (listsOfUsersState) => listsOfUsersState.listBlockReducer,
+        (listBlockState) => listBlockState.listBlockReducer,
     );
 
     const findFilledValue = (card: any, inputName: string) => {
@@ -37,7 +39,7 @@ export const InputContainer:FC<Props> = ({ catchInputValueChange }) => {
     };
 
     return (
-        <div className="userInfo__form">
+        <div className="cardBlock__inputContainer">
             {listOfInputs.map((inputField) => {
                 const { id, name, type, required, resPath } = inputField;
                 const openedCardContent = openedCardId !== null ? data[openedCardId - 1] : '';

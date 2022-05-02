@@ -1,25 +1,25 @@
-import { UserInfoState, UserInfoAction, UserInfoActionTypes } from '../../types/userInfoTypes';
+import { CardBlockAction, CardBlockActionTypes, CardBlockState } from '../../types/cardBlockTypes';
 
-const initialState: UserInfoState = {
+const initialState: CardBlockState = {
     isDisabledForm: true,
     isDisabledSendBtn: false,
 };
 
-export const userInfoReducer = (state = initialState, action: UserInfoAction): UserInfoState => {
+export const cardBlockReducer = (state = initialState, action: CardBlockAction): CardBlockState => {
     switch (action.type) {
-        case UserInfoActionTypes.TURN_ON_EDIT_MODE: {
+        case CardBlockActionTypes.TURN_ON_EDIT_MODE: {
             return {
                 ...state,
                 isDisabledForm: false,
             };
         }
-        case UserInfoActionTypes.TURN_OFF_EDIT_MODE: {
+        case CardBlockActionTypes.TURN_OFF_EDIT_MODE: {
             return {
                 ...state,
                 isDisabledForm: true,
             };
         }
-        case UserInfoActionTypes.CHANGE_BUTTON_AVAILABILITY: {
+        case CardBlockActionTypes.CHANGE_BUTTON_AVAILABILITY: {
             return {
                 ...state,
                 isDisabledSendBtn: action.value,

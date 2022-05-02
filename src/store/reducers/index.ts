@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 import { listBlockReducer } from './listBlockReducer';
 import { filterReducer } from './filterReducer';
-import { userInfoReducer } from './userInfoReducer';
+import { cardBlockReducer } from './cardBlockReducer';
 import { sendRequestReducer } from './sendRequestReducer';
 
 export const reducers = {
     listBlockReducer,
     filterReducer,
-    userInfoReducer,
+    cardBlockReducer,
     sendRequestReducer,
 };
 

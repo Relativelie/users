@@ -15,7 +15,7 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
     const [isEmptyInput, setIsEmptyInput] = useState(false);
     const [warningClass, setWarningClass] = useState('');
     const { isDisabledForm } = useTypedSelector(
-        (userInfoState) => userInfoState.userInfoReducer,
+        (cardBlockState) => cardBlockState.cardBlockReducer,
     );
 
     // Differences for the comment field.

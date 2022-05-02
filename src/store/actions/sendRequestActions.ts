@@ -36,10 +36,11 @@ export const sendPost = (values: any, url:string, headers:HeadersInit) => {
         } catch (err) {
             dispatch(sendFormFatal());
         }
-        dispatch(showRequestResult())
+        dispatch(showRequestResult(true));
     };
 };
 
-export const showRequestResult = () => ({
+export const showRequestResult = (editMode: boolean):SendRequestAction => ({
     type: SendRequestActionTypes.SHOW_REQUEST_RESULT,
-})
+    editMode,
+});

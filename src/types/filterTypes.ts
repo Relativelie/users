@@ -1,6 +1,5 @@
 export interface FilterState {
     filteredList: any[],
-    defaultFilter: string,
     activeFilter: string,
     allFilters: any,
     isFiltered: boolean,

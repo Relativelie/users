@@ -6,10 +6,10 @@ type Props = {
     name: string,
     address: { city: string },
     company: { name: string },
-    openUserInfo: Function
+    openCard: Function
 };
 
-export const UserCard: FC<Props> = ({ id, name, address, company, openUserInfo }) => {
+export const UserCard: FC<Props> = ({ id, name, address, company, openCard }) => {
     return (
         <div className="list__card">
             <div>
@@ -29,7 +29,7 @@ export const UserCard: FC<Props> = ({ id, name, address, company, openUserInfo }
             <Link
                 to={`user/${id}`}
                 className="list__more"
-                onClick={() => openUserInfo(id)}
+                onClick={() => openCard(id)}
             >
                 Подробнее
             </Link>

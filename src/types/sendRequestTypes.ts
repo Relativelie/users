@@ -37,6 +37,7 @@ interface SendRequestFatal {
 
 interface ShowRequestResult {
     type: SendRequestActionTypes.SHOW_REQUEST_RESULT,
+    editMode: boolean
 }
 
 export type SendRequestAction =

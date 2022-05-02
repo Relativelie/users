@@ -7,21 +7,21 @@ import { UserCard } from './userCard/UserCard';
 import './ListBlock.scss';
 
 export const ListBlock = () => {
-    const { saveUsersList, openUserInfo } = useActions();
+    const { saveList, openCard } = useActions();
     const { list } = useTypedSelector(
-        (listsOfUsersState) => listsOfUsersState.listBlockReducer,
+        (listBlockState) => listBlockState.listBlockReducer,
     );
     const { isFiltered, filteredList, activeFilter } = useTypedSelector(
-        (listsOfUsersState) => listsOfUsersState.filterReducer,
+        (filterState) => filterState.filterReducer,
     );
 
     useEffect(() => {
-        saveUsersList(data);
+        saveList(data);
     }, []);
 
     useEffect(() => {
-        if (isFiltered) saveUsersList(filteredList);
-        else saveUsersList(data);
+        if (isFiltered) saveList(filteredList);
+        else saveList(data);
     }, [activeFilter]);
 
     return (
@@ -37,7 +37,7 @@ export const ListBlock = () => {
                             name={name}
                             address={address}
                             company={company}
-                            openUserInfo={openUserInfo}
+                            openCard={openCard}
                         />
                     );
                 })}

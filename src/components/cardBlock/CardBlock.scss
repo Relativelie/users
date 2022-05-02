@@ -1,16 +1,25 @@
 @import "../../variables";
 
-.userInfo__form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.cardBlock__form {
     width: 438px;
-    padding: 20px 12px;
-    border: 1px solid #F3F3F3;
-    border-radius: 8px;
 }
 
-.userInfo__header {
+.cardBlock__header {
     @include header();
 }
 
+.cardBlock__editBtn {
+    @include buttons($height: 27.12px, $width: 116.67px);
+    @include textStyle;
+    margin-bottom: $pageNameMarginBottom;
+}
+
+.cardBlock__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardBlock_editBtn_isActive {
+    @include pressedBtn;
+}

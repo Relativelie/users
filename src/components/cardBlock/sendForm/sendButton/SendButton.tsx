@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import './SendButton.scss';
 
 type Props = {
     sendUserForm: Function,
@@ -8,12 +9,12 @@ type Props = {
 export const SendButton:FC<Props> = ({ sendUserForm, checkBtnAvailability }) => {
     return (
         <button
-            className="userInfo__sendForm"
+            className="sendForm__sendBtn"
             type="button"
             onClick={(e) => sendUserForm(e)}
             disabled={checkBtnAvailability()}
         >
-        Отправить
+            Отправить
         </button>
     );
 };

@@ -8,13 +8,13 @@ const initialState: ListBlockState = {
 
 export const listBlockReducer = (state = initialState, action: ListBlockAction): ListBlockState => {
     switch (action.type) {
-        case ListBlockActionTypes.SAVE_USERS_LIST: {
+        case ListBlockActionTypes.SAVE_LIST: {
             return {
                 ...state,
                 list: action.data,
             };
         }
-        case ListBlockActionTypes.OPEN_USER_INFO: {
+        case ListBlockActionTypes.OPEN_CARD: {
             return {
                 ...state,
                 isOpenListCard: true,
@@ -22,7 +22,7 @@ export const listBlockReducer = (state = initialState, action: ListBlockAction):
             };
         }
 
-        case ListBlockActionTypes.CLOSE_USER_INFO: {
+        case ListBlockActionTypes.CLOSE_CARD: {
             return {
                 ...state,
                 isOpenListCard: false,

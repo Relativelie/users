@@ -15,10 +15,9 @@
 }
 
 .filter__button {
-    @include buttons($height: 24.12px);
+    @include buttons($height: 24.12px, $width: max-content);
 }
 
 .filter__button_isActive {
-    background-color: $activeBtnColor;
-    border: 1px solid rgba(139, 139, 139, 0.543);
+    @include pressedBtn;
 }

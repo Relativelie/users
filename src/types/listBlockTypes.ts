@@ -5,25 +5,25 @@ export interface ListBlockState {
 }
 
 export enum ListBlockActionTypes {
-    OPEN_USER_INFO = 'OPEN_USER_INFO',
-    CLOSE_USER_INFO = 'CLOSE_USER_INFO',
-    SAVE_USERS_LIST = 'SAVE_USERS_LIST',
+    OPEN_CARD = 'OPEN_CARD',
+    CLOSE_CARD = 'CLOSE_CARD',
+    SAVE_LIST = 'SAVE_LIST',
 }
 
-interface SaveUsersList {
-    type: ListBlockActionTypes.SAVE_USERS_LIST,
+interface SaveList {
+    type: ListBlockActionTypes.SAVE_LIST,
     data: any[]
 }
-interface OpenUserInfo {
-    type: ListBlockActionTypes.OPEN_USER_INFO,
+interface OpenCard {
+    type: ListBlockActionTypes.OPEN_CARD,
     id: number
 }
 
-interface CloseUserInfo {
-    type: ListBlockActionTypes.CLOSE_USER_INFO,
+interface CloseCard {
+    type: ListBlockActionTypes.CLOSE_CARD,
 }
 
 export type ListBlockAction =
-    | OpenUserInfo
-    | CloseUserInfo
-    | SaveUsersList;
+    | OpenCard
+    | CloseCard
+    | SaveList;

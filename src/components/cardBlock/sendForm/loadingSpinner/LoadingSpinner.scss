@@ -1,3 +1,5 @@
+@import "../../../../variables";
+
 @keyframes rotate {
     to {
         transform: rotate(360deg);
@@ -9,8 +11,7 @@
     justify-self: flex-end;
     width: 20px;
     height: 20px;
-    margin-top: clamp(2px, 1vw, 10px);
-    border: 2px solid rgba(0, 0, 0, 0.6);
+    border: 2px solid $buttonsBgColor;
     border-top-color: transparent;
     border-radius: 50%;
 

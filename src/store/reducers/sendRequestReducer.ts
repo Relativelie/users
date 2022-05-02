@@ -8,7 +8,7 @@ const initialState: SendRequestState = {
     requestSuccessText: 'Форма отправлена',
     requestErrorText: 'Something went wrong...',
     errorCode: null,
-    shownRequestResult: ""
+    shownRequestResult: '',
 };
 
 export const sendRequestReducer = (state = initialState, action: SendRequestAction): SendRequestState => {
@@ -49,14 +49,18 @@ export const sendRequestReducer = (state = initialState, action: SendRequestActi
 
         case SendRequestActionTypes.SHOW_REQUEST_RESULT: {
             let resultOfRequest;
-            if (state.isRequestSuccess) resultOfRequest = state.requestSuccessText;
-            else if (state.isRequestError) resultOfRequest = `${state.requestErrorText} code: ${state.errorCode}`;
-            else if (state.isRequestFatal) resultOfRequest =  state.requestErrorText;
-            else resultOfRequest = ""
+            if (action.editMode) {
+                if (state.isRequestSuccess) resultOfRequest = state.requestSuccessText;
+                else if (state.isRequestError) resultOfRequest = `${state.requestErrorText} code: ${state.errorCode}`;
+                else if (state.isRequestFatal) resultOfRequest = state.requestErrorText;
+                else resultOfRequest = '';
+            } else {
+                resultOfRequest = '';
+            }
             return {
                 ...state,
-                shownRequestResult: resultOfRequest
-            }
+                shownRequestResult: resultOfRequest,
+            };
         }
         default:
             return state;

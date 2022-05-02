@@ -10,14 +10,16 @@ import './CardBlock.scss';
 export const CardBlock = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { userId } = useParams();
+    const [editBtnIsPressed, setEditBtnIsPressed] = useState('');
     const [inputValueChange, setInputValueChange] = useState(false);
     const {
         isDisabledForm,
-    } = useTypedSelector((userInfoState) => userInfoState.userInfoReducer);
+    } = useTypedSelector((cardBlockState) => cardBlockState.cardBlockReducer);
     const {
         turnOffEditMode,
         turnOnEditMode,
         changeBtnAvailability,
+        showRequestResult,
     } = useActions();
 
     useEffect(() => {
@@ -36,18 +38,30 @@ export const CardBlock = () => {
     };
 
     const editMode = () => {
-        if (isDisabledForm) turnOnEditMode();
-        else turnOffEditMode();
+        if (isDisabledForm) {
+            turnOnEditMode();
+            setEditBtnIsPressed('cardBlock_editBtn_isActive');
+        } else {
+            turnOffEditMode();
+            setEditBtnIsPressed('');
+            showRequestResult(false);
+        }
         checkForEmptiness();
     };
 
     return (
-        <section className="userInfo">
-            <h3 className="userInfo__header">Профиль пользователя</h3>
-            <button onClick={() => editMode()} type="button">
-                Редактировать
-            </button>
-            <form action="some url">
+        <section className="cardBlock">
+            <div className="cardBlock__container">
+                <h3 className="cardBlock__header">Профиль пользователя</h3>
+                <button
+                    className={`cardBlock__editBtn ${editBtnIsPressed}`.trim()}
+                    onClick={() => editMode()}
+                    type="button"
+                >
+                    Редактировать
+                </button>
+            </div>
+            <form className="cardBlock__form" action="some url">
                 <InputContainer catchInputValueChange={catchInputValueChange} />
                 <SendForm />
             </form>

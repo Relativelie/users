@@ -2,7 +2,6 @@ import { FilterAction, FilterActionTypes, FilterState } from '../../types/filter
 
 const initialState: FilterState = {
     filteredList: [],
-    defaultFilter: 'id',
     activeFilter: '',
     allFilters: {
         address_city: 'по городу',
@@ -14,7 +13,6 @@ const initialState: FilterState = {
 export const filterReducer = (state = initialState, action: FilterAction): FilterState => {
     switch (action.type) {
         case FilterActionTypes.TURN_ON_FILTER: {
-            // const allList = [...state.filteredList];
             const filteredItems = [...action.data];
             if (action.filterBy.indexOf('_') !== -1) {
                 const delimiterIndex = action.filterBy.indexOf('_');
@@ -33,10 +31,6 @@ export const filterReducer = (state = initialState, action: FilterAction): Filte
             };
         }
         case FilterActionTypes.TURN_OFF_FILTER: {
-            const allList = [...state.filteredList];
-            allList.sort((first, second) => {
-                return first[state.defaultFilter] - second[state.defaultFilter];
-            });
             return {
                 ...state,
                 filteredList: [],

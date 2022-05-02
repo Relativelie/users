@@ -21,6 +21,11 @@
     line-height: 12px;
 }
 
+.inputFieldContainer__input:disabled {
+    color: #D8D8D8;
+    background-color: #FFFFFF;
+}
+
 .inputFieldContainer__label {
     margin-bottom: 3px;
     font-size: 8px;
@@ -34,5 +39,5 @@
 }
 
 .inputFieldContainer__input_warning-for-emptiness {
-    border: 1px solid #D91313;
+    border: 1px solid $errorColor;
 }

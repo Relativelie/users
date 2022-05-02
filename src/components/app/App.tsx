@@ -7,7 +7,7 @@ import './App.scss';
 
 function App() {
     const { list } = useTypedSelector(
-        (listsOfUsersState) => listsOfUsersState.listBlockReducer,
+        (listBlockState) => listBlockState.listBlockReducer,
     );
     return (
         <div className="App">

@@ -1,15 +1,15 @@
 import { ListBlockAction, ListBlockActionTypes } from '../../types/listBlockTypes';
 
-export const saveUsersList = (data: any[]): ListBlockAction => ({
-    type: ListBlockActionTypes.SAVE_USERS_LIST,
+export const saveList = (data: any[]): ListBlockAction => ({
+    type: ListBlockActionTypes.SAVE_LIST,
     data,
 });
 
-export const openUserInfo = (id: number): ListBlockAction => ({
-    type: ListBlockActionTypes.OPEN_USER_INFO,
+export const openCard = (id: number): ListBlockAction => ({
+    type: ListBlockActionTypes.OPEN_CARD,
     id,
 });
 
-export const closeUserInfo = (): ListBlockAction => ({
-    type: ListBlockActionTypes.CLOSE_USER_INFO,
+export const closeCard = (): ListBlockAction => ({
+    type: ListBlockActionTypes.CLOSE_CARD,
 });
