@@ -28,7 +28,7 @@ export const ListBlock = () => {
         <section className="list">
             <h3 className="list__header">Список пользователей</h3>
             <div className="list__cards">
-                {list.map((user: any) => {
+                {list.map((user: Record<string, any>) => {
                     const { id, name, address, company } = user;
                     return (
                         <UserCard

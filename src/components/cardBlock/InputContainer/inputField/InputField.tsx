@@ -47,12 +47,13 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
 
     const validateValue = () => {
         const { value } = inputValue.current;
-        if (value.length === 0) setIsEmptyInput(true);
+        if (value.trim().length === 0) setIsEmptyInput(true);
         else setIsEmptyInput(false);
     };
 
-    const switchByEnter = (event: any) => {
-        const formElements = event.target.form;
+    const switchByEnter = (event: FormEvent<HTMLInputElement>) => {
+        const elem = event.target as HTMLFormElement;
+        const formElements = elem.form;
         const index = [...formElements].indexOf(event.target);
         formElements.elements[index + 1].focus();
         event.preventDefault();

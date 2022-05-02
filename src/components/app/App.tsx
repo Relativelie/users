@@ -7,8 +7,9 @@ import {
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { ListBlock } from '../listBlock/ListBlock';
 import { CardBlock } from '../cardBlock/CardBlock';
-import './App.scss';
 import { MenuBlock } from '../menuBlock/MenuBlock';
+
+import './App.scss';
 
 function App() {
     const { list, openedCardId } = useTypedSelector(

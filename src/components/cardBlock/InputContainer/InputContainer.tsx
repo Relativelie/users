@@ -10,7 +10,7 @@ type Props = {
     catchInputValueChange: Function,
 };
 
-export const InputContainer:FC<Props> = ({ catchInputValueChange }) => {
+export const InputContainer: FC<Props> = ({ catchInputValueChange }) => {
     const { openedCardId } = useTypedSelector(
         (listBlockState) => listBlockState.listBlockReducer,
     );
@@ -35,6 +35,7 @@ export const InputContainer:FC<Props> = ({ catchInputValueChange }) => {
                 }
             });
         }
+
         return result;
     };
 
