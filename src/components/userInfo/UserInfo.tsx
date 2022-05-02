@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useActions } from '../../hooks/useActions';
 import { InputContainer } from './InputContainer/InputContainer';
-import './UserInfo.scss';
 import { SendForm } from './sendForm/SendForm';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
+import './UserInfo.scss';
+
 export const UserInfo = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { userId } = useParams();
     const [inputValueChange, setInputValueChange] = useState(false);
-
     const {
         isDisabledForm,
     } = useTypedSelector((userInfoState) => userInfoState.userInfoReducer);
@@ -20,17 +21,15 @@ export const UserInfo = () => {
     } = useActions();
 
     useEffect(() => {
-
-check()
+        checkForEmptiness();
     }, [inputValueChange]);
 
-    const check = () => {
+    const checkForEmptiness = () => {
         const errorClass = '.inputFieldContainer__input_warning-for-emptiness';
         const errorField = document.querySelector(errorClass);
-        console.log("userinfo: ", errorField)
         if (errorField !== null) changeBtnAvailability(true);
         else changeBtnAvailability(false);
-    }
+    };
 
     const catchInputValueChange = () => {
         setInputValueChange(!inputValueChange);
@@ -39,7 +38,7 @@ check()
     const editMode = () => {
         if (isDisabledForm) turnOnEditMode();
         else turnOffEditMode();
-        check()
+        checkForEmptiness();
     };
 
     return (

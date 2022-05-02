@@ -1,11 +1,14 @@
+import { FC } from 'react';
 import { content } from '../../../content';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { InputField } from './inputField/InputField';
 import { userInfoContent } from '../UserInfoContent';
-import { FC } from 'react';
 
+type Props = {
+    catchInputValueChange: Function,
+};
 
-export const InputContainer = ({catchInputValueChange}) => {
+export const InputContainer:FC<Props> = ({ catchInputValueChange }) => {
     const { openedCardId } = useTypedSelector(
         (listsOfUsersState) => listsOfUsersState.listOfUsersReducer,
     );

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { data } from '../../data/data';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 import './ListsOfUsers.scss';
+import { UserCard } from './userCard/UserCard';
 
 export const ListsOfUsers = () => {
     const { saveUsersList, openUserInfo } = useActions();
@@ -23,29 +23,13 @@ export const ListsOfUsers = () => {
                 {list.map((user: any) => {
                     const { id, name, address, company } = user;
                     return (
-                        <div className="list__card" key={id}>
-                            <div>
-                                <p className="list__cardContent">
-                                    <span className="list__cardContentTitle">ФИО:</span>
-                                    {name}
-                                </p>
-                                <p className="list__cardContent">
-                                    <span className="list__cardContentTitle">город:</span>
-                                    {address.city}
-                                </p>
-                                <p className="list__cardContent">
-                                    <span className="list__cardContentTitle">компания:</span>
-                                    {company.name}
-                                </p>
-                            </div>
-                            <Link
-                                to={`user/${id}`}
-                                className="list__more"
-                                onClick={() => openUserInfo(id)}
-                            >
-                                Подробнее
-                            </Link>
-                        </div>
+                        <UserCard
+                            id={id}
+                            name={name}
+                            address={address}
+                            company={company}
+                            openUserInfo={openUserInfo}
+                        />
                     );
                 })}
             </div>

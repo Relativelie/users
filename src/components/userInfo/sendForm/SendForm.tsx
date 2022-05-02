@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime';
+import { MouseEvent } from 'react';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { LoadingSpinner } from './loadingSpinner/LoadingSpinner';
@@ -16,16 +17,18 @@ export const SendForm = () => {
         shownRequestResult,
     } = useTypedSelector((requestState) => requestState.sendRequestReducer);
 
-    const prepareFormValues = (e: any) => {
-        const formList = e.target.form;
-        const formValues = {};
+    const prepareFormValues = (e: MouseEvent<HTMLButtonElement>) => {
+        // For request body.
+        const elem = e.target as HTMLFormElement;
+        const formList = elem.form;
+        const formValues: Record<string, any> = {};
         for (let i = 0; i < formList.length - 1; i++) {
-            formValues[formList[i].dataset.inputname] = formList[i].value;
+            formValues[formList[i].inputEl.dataset.inputname] = formList[i].value;
         }
         return formValues;
     };
 
-    const sendUserForm = (e: any) => {
+    const sendUserForm = (e: MouseEvent<HTMLButtonElement>) => {
         const formValues = prepareFormValues(e);
         const url = 'https://usersediting.free.beeceptor.com/id';
         const headers = {
@@ -34,7 +37,6 @@ export const SendForm = () => {
         };
         sendPost(formValues, url, headers);
     };
-
 
     const checkBtnAvailability = () => {
         let checkResult: boolean;
@@ -46,14 +48,7 @@ export const SendForm = () => {
     return (
         <div>
             <div>
-                <button
-                    className="userInfo__sendForm"
-                    type="button"
-                    onClick={(e) => sendUserForm(e)}
-                    disabled={checkBtnAvailability()}
-                >
-                    Отправить
-                </button>
+                <SendButton sendUserForm={sendUserForm} checkBtnAvailability={checkBtnAvailability} />
                 <LoadingSpinner isLoading={isRequestLoading} />
             </div>
             <p>

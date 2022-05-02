@@ -1,5 +1,4 @@
 import { useEffect, FormEvent, useState, MutableRefObject, useRef, FC } from 'react';
-import { useActions } from '../../../../hooks/useActions';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import './InputField.scss';
 
@@ -14,22 +13,17 @@ type Props = {
 export const InputField: FC<Props> = ({ labelText, required, type, filledValue, catchInputValueChange }) => {
     const inputValue = useRef() as MutableRefObject<HTMLInputElement>;
     const [isEmptyInput, setIsEmptyInput] = useState(false);
-    const { isDisabledForm, isDisabledSendBtn } = useTypedSelector(
+    const [warningClass, setWarningClass] = useState('');
+    const { isDisabledForm } = useTypedSelector(
         (userInfoState) => userInfoState.userInfoReducer,
     );
-
-
-    const [warningClass, setWarningClass] = useState('')
-    // const warningClass = isEmptyInput
-    //     ? 'inputFieldContainer__input_warning-for-emptiness'
-    //     : '';
 
     // Differences for the comment field.
     const placeholderText = labelText === 'Comment' ? '' : labelText;
     const commentClass = labelText === 'Comment' ? 'inputFieldContainer__input_comment' : '';
 
     useEffect(() => {
-        // Open user card.
+        // Filling values when open user card.
         inputValue.current.value = filledValue;
     }, []);
 
@@ -42,17 +36,14 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
 
     useEffect(() => {
         if (isEmptyInput) {
-            setWarningClass('inputFieldContainer__input_warning-for-emptiness')
-        } else setWarningClass('')
-        console.log("inputField: ", warningClass)
-
+            setWarningClass('inputFieldContainer__input_warning-for-emptiness');
+        } else setWarningClass('');
     });
 
     useEffect(() => {
+        // For disabled send button, if input field is empty.
         catchInputValueChange();
-    },[warningClass])
-
-
+    }, [warningClass]);
 
     const validateValue = () => {
         const { value } = inputValue.current;
@@ -71,9 +62,7 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
         if ((eventType === 'blur' || eventType === 'Enter') && required) {
             validateValue();
         }
-        if (eventType === 'Enter') {
-            switchByEnter(event);
-        }
+        if (eventType === 'Enter') switchByEnter(event);
     };
 
     return (
