@@ -29,7 +29,7 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
 
     useEffect(() => {
         // Validate values for emptiness when open user card.
-        if (labelText !== 'Comment') {
+        if (required) {
             validateValue();
         }
     }, []);
