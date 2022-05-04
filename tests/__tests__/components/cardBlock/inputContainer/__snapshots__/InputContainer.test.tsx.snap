@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input container component snapshot - input container component 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="cardBlock__inputContainer"
+      >
+        <div
+          class="inputFieldContainer"
+        >
+          <label
+            class="inputFieldContainer__label"
+            for="Name"
+          >
+            Name
+          </label>
+          <input
+            class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+            data-inputname="name"
+            disabled=""
+            placeholder="Name"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputFieldContainer"
+        >
+          <label
+            class="inputFieldContainer__label"
+            for="User name"
+          >
+            User name
+          </label>
+          <input
+            class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+            data-inputname="user name"
+            disabled=""
+            placeholder="User name"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputFieldContainer"
+        >
+          <label
+            class="inputFieldContainer__label"
+            for="E-mail"
+          >
+            E-mail
+          </label>
+          <input
+            class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+            data-inputname="e-mail"
+            disabled=""
+            placeholder="E-mail"
+            type="email"
+          />
+        </div>
+        <div
+          class="inputFieldContainer"
+        >
+          <label
+            class="inputFieldContainer__label"
+            for="Street"
+          >
+            Street
+          </label>
+          <input
+            class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+            data-inputname="street"
+            disabled=""
+            placeholder="Street"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputFieldContainer"
+        >
+          <label
+            class="inputFieldContainer__label"
+            for="City"
+          >
+            City
+          </label>
+          <input
+            class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+            data-inputname="city"
+            disabled=""
+            placeholder="City"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputFieldContainer"
+        >
+          <label
+            class="inputFieldContainer__label"
+            for="Phone"
+          >
+            Phone
+          </label>
+          <input
+            class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+            data-inputname="phone"
+            disabled=""
+            placeholder="Phone"
+            type="tel"
+          />
+        </div>
+        <div
+          class="inputFieldContainer"
+        >
+          <label
+            class="inputFieldContainer__label"
+            for="Website"
+          >
+            Website
+          </label>
+          <input
+            class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+            data-inputname="website"
+            disabled=""
+            placeholder="Website"
+            type="url"
+          />
+        </div>
+        <div
+          class="inputFieldContainer"
+        >
+          <label
+            class="inputFieldContainer__label"
+            for="Comment"
+          >
+            Comment
+          </label>
+          <input
+            class="inputFieldContainer__input inputFieldContainer__input_comment"
+            data-inputname="comment"
+            disabled=""
+            placeholder=""
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="cardBlock__inputContainer"
+    >
+      <div
+        class="inputFieldContainer"
+      >
+        <label
+          class="inputFieldContainer__label"
+          for="Name"
+        >
+          Name
+        </label>
+        <input
+          class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+          data-inputname="name"
+          disabled=""
+          placeholder="Name"
+          type="text"
+        />
+      </div>
+      <div
+        class="inputFieldContainer"
+      >
+        <label
+          class="inputFieldContainer__label"
+          for="User name"
+        >
+          User name
+        </label>
+        <input
+          class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+          data-inputname="user name"
+          disabled=""
+          placeholder="User name"
+          type="text"
+        />
+      </div>
+      <div
+        class="inputFieldContainer"
+      >
+        <label
+          class="inputFieldContainer__label"
+          for="E-mail"
+        >
+          E-mail
+        </label>
+        <input
+          class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+          data-inputname="e-mail"
+          disabled=""
+          placeholder="E-mail"
+          type="email"
+        />
+      </div>
+      <div
+        class="inputFieldContainer"
+      >
+        <label
+          class="inputFieldContainer__label"
+          for="Street"
+        >
+          Street
+        </label>
+        <input
+          class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+          data-inputname="street"
+          disabled=""
+          placeholder="Street"
+          type="text"
+        />
+      </div>
+      <div
+        class="inputFieldContainer"
+      >
+        <label
+          class="inputFieldContainer__label"
+          for="City"
+        >
+          City
+        </label>
+        <input
+          class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+          data-inputname="city"
+          disabled=""
+          placeholder="City"
+          type="text"
+        />
+      </div>
+      <div
+        class="inputFieldContainer"
+      >
+        <label
+          class="inputFieldContainer__label"
+          for="Phone"
+        >
+          Phone
+        </label>
+        <input
+          class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+          data-inputname="phone"
+          disabled=""
+          placeholder="Phone"
+          type="tel"
+        />
+      </div>
+      <div
+        class="inputFieldContainer"
+      >
+        <label
+          class="inputFieldContainer__label"
+          for="Website"
+        >
+          Website
+        </label>
+        <input
+          class="inputFieldContainer__input  inputFieldContainer__input_warning-for-emptiness"
+          data-inputname="website"
+          disabled=""
+          placeholder="Website"
+          type="url"
+        />
+      </div>
+      <div
+        class="inputFieldContainer"
+      >
+        <label
+          class="inputFieldContainer__label"
+          for="Comment"
+        >
+          Comment
+        </label>
+        <input
+          class="inputFieldContainer__input inputFieldContainer__input_comment"
+          data-inputname="comment"
+          disabled=""
+          placeholder=""
+          type="text"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

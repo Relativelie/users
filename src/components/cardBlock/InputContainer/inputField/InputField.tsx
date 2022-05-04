@@ -51,19 +51,22 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
         else setIsEmptyInput(false);
     };
 
-    const switchByEnter = (event: FormEvent<HTMLInputElement>) => {
-        const elem = event.target as HTMLFormElement;
-        const formElements = elem.form;
-        const index = [...formElements].indexOf(event.target);
-        formElements.elements[index + 1].focus();
-        event.preventDefault();
+    const switchByEnter = (event: any) => {
+        if (event.key === 'Enter') {
+            const elem = event.target as HTMLFormElement;
+            const formElements = elem.form;
+            if (formElements !== null) {
+                const index = [...formElements].indexOf(event.target);
+                formElements.elements[index + 1].focus();
+            } else event.target.blur();
+            event.preventDefault();
+        }
     };
 
-    const valueProcessing = (event: FormEvent<HTMLInputElement>, eventType: string) => {
-        if ((eventType === 'blur' || eventType === 'Enter') && required) {
+    const valueProcessing = (eventType: string) => {
+        if ((eventType === 'blur') && required) {
             validateValue();
         }
-        if (eventType === 'Enter') switchByEnter(event);
     };
 
     return (
@@ -76,10 +79,9 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
                 type={type}
                 placeholder={placeholderText}
                 ref={inputValue}
-                onBlur={(e) => valueProcessing(e, e.type)}
-                onKeyUp={(e) => valueProcessing(e, e.key)}
+                onBlur={(e) => valueProcessing(e.type)}
+                onKeyPress={(e) => switchByEnter(e)}
                 data-inputname={labelText.toLocaleLowerCase()}
-                disabled={isDisabledForm}
             />
         </div>
     );
