@@ -21,7 +21,11 @@ export const filterReducer = (state = initialState, action: FilterAction): Filte
                 filteredItems.sort((first, second) => first[firstKeyFlag][secondKeyFlag].localeCompare(second[firstKeyFlag][secondKeyFlag]));
             } else {
                 const filteringFlag = action.filterBy;
-                filteredItems.sort((first, second) => first[filteringFlag].localeCompare(second[filteringFlag]));
+                if (!Number.isNaN(filteredItems[0][filteringFlag])) {
+                    filteredItems.sort((first, second) => first[filteringFlag] - second[filteringFlag]);
+                } else {
+                    filteredItems.sort((first, second) => first[filteringFlag].localeCompare(second[filteringFlag]));
+                }
             }
             return {
                 ...state,

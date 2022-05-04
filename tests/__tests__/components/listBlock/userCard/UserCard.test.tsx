@@ -1,6 +1,5 @@
-import { screen } from '@testing-library/dom';
+import { fireEvent, screen } from '@testing-library/dom';
 import { MemoryRouter as Router } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
 import { UserCard } from '../../../../../src/components/listBlock/userCard/UserCard';
 import { render } from '../../../../testsSetup/test-utils';
 
@@ -40,7 +39,7 @@ describe('user card component', () => {
             </Router>,
         );
         const editButton = screen.getByText(/подробнее/i);
-        userEvent.click(editButton);
+        fireEvent.click(editButton);
         expect(openCard).toHaveBeenCalledTimes(1);
     });
 });

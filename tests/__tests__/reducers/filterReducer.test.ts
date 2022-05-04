@@ -1,8 +1,8 @@
 import { turnOffFilter, turnOnFilter } from '../../../src/store/actions/filterActions';
 import { filterReducer } from '../../../src/store/reducers/filterReducer';
 import { FilterState } from '../../../src/types/filterTypes';
-import { data } from '../testValues/data';
-import { dataCity } from '../testValues/data-city';
+import { data } from '../../testValues/data';
+import { dataCity } from '../../testValues/data-city';
 
 let state: FilterState;
 let stateForTurnOff: FilterState;
@@ -22,6 +22,7 @@ beforeEach(() => {
         allFilters: {
             address_city: 'по городу',
             company_name: 'по компании',
+            id: 'id',
         },
         isFiltered: true,
     };
@@ -36,7 +37,7 @@ describe('filter reducer', () => {
         expect(newState).toStrictEqual({
             ...state,
             filteredList: dataCity,
-            activeFilter: 'по городу',
+            activeFilter: 'address_city',
             isFiltered: true,
         });
     });

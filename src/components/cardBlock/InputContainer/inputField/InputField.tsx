@@ -1,4 +1,4 @@
-import { useEffect, FormEvent, useState, MutableRefObject, useRef, FC } from 'react';
+import { useEffect, useState, MutableRefObject, useRef, FC } from 'react';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import './InputField.scss';
 
@@ -82,6 +82,7 @@ export const InputField: FC<Props> = ({ labelText, required, type, filledValue, 
                 onBlur={(e) => valueProcessing(e.type)}
                 onKeyPress={(e) => switchByEnter(e)}
                 data-inputname={labelText.toLocaleLowerCase()}
+                disabled={isDisabledForm}
             />
         </div>
     );

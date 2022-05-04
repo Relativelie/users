@@ -5,7 +5,7 @@ describe('list block actions', () => {
     test('action to save list', () => {
         expect(saveList([{ e: 'tt' }])).toEqual({
             type: ListBlockActionTypes.SAVE_LIST,
-            data: { e: '98' },
+            data: [{ e: 'tt' }],
         });
     });
 

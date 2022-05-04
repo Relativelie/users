@@ -1,7 +1,7 @@
 import { closeCard, openCard, saveList } from '../../../src/store/actions/listBlockActions';
 import { listBlockReducer } from '../../../src/store/reducers/listBlockReducer';
 import { ListBlockState } from '../../../src/types/listBlockTypes';
-import { data } from '../testValues/data';
+import { data } from '../../testValues/data';
 
 let state: ListBlockState;
 let stateForClose: ListBlockState;

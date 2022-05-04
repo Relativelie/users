@@ -1,5 +1,4 @@
-import { screen } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, screen } from '@testing-library/dom';
 import { SendButton } from '../../../../../src/components/cardBlock/sendForm/sendButton/SendButton';
 import { render } from '../../../../testsSetup/test-utils';
 
@@ -34,9 +33,9 @@ describe('Send button component', () => {
             sendUserForm={sendForm}
             checkBtnAvailability={checkAvailabilityTrue}
         />);
-        const button = screen.getByLabelText(/отправить/i);
-        userEvent.click(button);
-        expect(checkAvailabilityTrue).not.toHaveBeenCalled();
+        const button = screen.getByText(/отправить/i);
+        fireEvent.click(button);
+        expect(checkAvailabilityTrue).toHaveBeenCalledTimes(1);
         expect(sendForm).not.toHaveBeenCalled();
     });
 
@@ -45,8 +44,8 @@ describe('Send button component', () => {
             sendUserForm={sendForm}
             checkBtnAvailability={checkAvailabilityFalse}
         />);
-        const button = screen.getByLabelText(/отправить/i);
-        userEvent.click(button);
+        const button = screen.getByText(/отправить/i);
+        fireEvent.click(button);
         expect(checkAvailabilityFalse).toHaveBeenCalledTimes(1);
         expect(sendForm).toHaveBeenCalledTimes(1);
     });

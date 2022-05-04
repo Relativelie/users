@@ -110,7 +110,7 @@ describe('send request reducer', () => {
             showRequestResult(true),
         );
         expect(newState).toStrictEqual({
-            ...stateLoadingTrue,
+            ...stateFatal,
             shownRequestResult: 'Something went wrong...',
         });
     });
@@ -121,7 +121,7 @@ describe('send request reducer', () => {
             showRequestResult(true),
         );
         expect(newState).toStrictEqual({
-            ...stateLoadingTrue,
+            ...stateError,
             shownRequestResult: 'Something went wrong... code: 500',
         });
     });
