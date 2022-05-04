@@ -1,26 +1,26 @@
 import { SendRequestAction, SendRequestActionTypes } from '../../types/sendRequestTypes';
 
-export const sendFormBegin = (): SendRequestAction => ({
+export const sendRequestBegin = (): SendRequestAction => ({
     type: SendRequestActionTypes.SEND_REQUEST_BEGIN,
 });
 
-export const sendFormSuccess = (): SendRequestAction => ({
+export const sendRequestSuccess = (): SendRequestAction => ({
     type: SendRequestActionTypes.SEND_REQUEST_SUCCESS,
 });
 
-export const sendFormError = (value: number): SendRequestAction => ({
+export const sendRequestError = (value: number): SendRequestAction => ({
     type: SendRequestActionTypes.SEND_REQUEST_ERROR,
     value,
 });
 
-export const sendFormFatal = (): SendRequestAction => ({
+export const sendRequestFatal = (): SendRequestAction => ({
     type: SendRequestActionTypes.SEND_REQUEST_FATAL,
 });
 
 export const sendPost = (values: any, url:string, headers:HeadersInit) => {
-    return async (dispatch) => {
+    return async (dispatch: any) => {
         try {
-            dispatch(sendFormBegin());
+            dispatch(sendRequestBegin());
             const request = await fetch(
                 url,
                 {
@@ -31,10 +31,10 @@ export const sendPost = (values: any, url:string, headers:HeadersInit) => {
             );
             const result = await request.json();
             if (result.status === 'error') {
-                dispatch(sendFormError(result.code));
-            } else dispatch(sendFormSuccess());
+                dispatch(sendRequestError(result.code));
+            } else dispatch(sendRequestSuccess());
         } catch (err) {
-            dispatch(sendFormFatal());
+            dispatch(sendRequestFatal());
         }
         dispatch(showRequestResult(true));
     };

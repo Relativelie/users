@@ -21,6 +21,6 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src", "webpack.dev.config.ts"
+    "src", "webpack.dev.config.ts", "tests/__tests__", "tests/__mocks__", "tests/testsSetup"
   ]
 }

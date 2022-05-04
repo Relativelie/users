@@ -1,5 +1,6 @@
 {
     "include": [
-        "webpack.dev.config.ts"
+        "webpack.dev.config.ts",
+        "jest.config.ts"
     ]
 }
