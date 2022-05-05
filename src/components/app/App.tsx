@@ -22,12 +22,12 @@ function App() {
                     <MenuBlock list={list} />
                     <main className="container__info">
                         <Routes>
-                            <Route path="/" element={<ListBlock />} />
+                            <Route path="/users" element={<ListBlock />} />
                             <Route
                                 path="/user/:id"
-                                element={openedCardId !== null ? <CardBlock /> : <Navigate to="/" />}
+                                element={openedCardId !== null ? <CardBlock /> : <Navigate to="/users" />}
                             />
-                            <Route path="*" element={<Navigate to="/" />} />
+                            <Route path="*" element={<Navigate to="/users" />} />
                         </Routes>
                     </main>
                 </div>
