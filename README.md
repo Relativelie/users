@@ -7,6 +7,7 @@ Used:
 - typescript
 - react
 - redux
+- react-router-dom
 - scss
 - jest tests
 
