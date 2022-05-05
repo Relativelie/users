@@ -19,6 +19,7 @@ export const sendRequestFatal = (): SendRequestAction => ({
 
 export const sendPost = (values: any, url:string, headers:HeadersInit) => {
     return async (dispatch: any) => {
+        console.log(JSON.stringify(values));
         try {
             dispatch(sendRequestBegin());
             const request = await fetch(
