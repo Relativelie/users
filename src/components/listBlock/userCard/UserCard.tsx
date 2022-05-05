@@ -27,7 +27,7 @@ export const UserCard: FC<Props> = ({ id, name, address, company, openCard }) =>
                 </p>
             </div>
             <Link
-                to={`user/${id}`}
+                to={`/users/user/${id}`}
                 className="list__more"
                 onClick={() => openCard(id)}
             >

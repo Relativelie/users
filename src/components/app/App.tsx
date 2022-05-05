@@ -24,7 +24,7 @@ function App() {
                         <Routes>
                             <Route path="/users" element={<ListBlock />} />
                             <Route
-                                path="/user/:id"
+                                path="/users/user/:id"
                                 element={openedCardId !== null ? <CardBlock /> : <Navigate to="/users" />}
                             />
                             <Route path="*" element={<Navigate to="/users" />} />
