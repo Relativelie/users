@@ -12,7 +12,7 @@ type Props = {
 export const UserCard: FC<Props> = ({ id, name, address, company, openCard }) => {
     return (
         <div className="list__card">
-            <div>
+            <div className="list__cardContentContainer">
                 <p className="list__cardContent">
                     <span className="list__cardContentTitle">ФИО:</span>
                     {name}

@@ -7,11 +7,13 @@
 .list__resultCount {
     @include textStyle();
     text-align: right;
+    margin-top: 10px;
 }
 
 .list__cards {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 14px;
 }
 
@@ -31,8 +33,14 @@
         font-style: normal;
     }
 
+    & .list__cardContentContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 7px
+    }
+
     & .list__cardContent {
-        margin: 0 0 7px 0;
+        margin: 0;
         font-size: 11px;
         line-height: 13px;
 

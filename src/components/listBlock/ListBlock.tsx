@@ -5,6 +5,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { UserCard } from './userCard/UserCard';
 
 import './ListBlock.scss';
+import { LoadingSpinner } from '../loadingSpinner/LoadingSpinner';
 
 export const ListBlock = () => {
     const { saveList, openCard } = useActions();
@@ -28,6 +29,7 @@ export const ListBlock = () => {
         <section className="list">
             <h3 className="list__header">Список пользователей</h3>
             <div className="list__cards">
+                {list.length === 0 && <LoadingSpinner isLoading />}
                 {list.map((user: Record<string, any>) => {
                     const { id, name, address, company } = user;
                     return (

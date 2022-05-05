@@ -2,7 +2,7 @@ import 'regenerator-runtime/runtime';
 import { MouseEvent } from 'react';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { LoadingSpinner } from './loadingSpinner/LoadingSpinner';
+import { LoadingSpinner } from '../../loadingSpinner/LoadingSpinner';
 import { SendButton } from './sendButton/SendButton';
 
 import './SendForm.scss';

@@ -8,6 +8,12 @@ export enum ListBlockActionTypes {
     OPEN_CARD = 'OPEN_CARD',
     CLOSE_CARD = 'CLOSE_CARD',
     SAVE_LIST = 'SAVE_LIST',
+    LOADING_LIST = 'LOADING_LIST',
+}
+
+interface LoadingList {
+    type: ListBlockActionTypes.LOADING_LIST,
+    value: boolean
 }
 
 interface SaveList {
@@ -26,4 +32,5 @@ interface CloseCard {
 export type ListBlockAction =
     | OpenCard
     | CloseCard
-    | SaveList;
+    | SaveList
+    | LoadingList;

@@ -29,6 +29,7 @@ export const listBlockReducer = (state = initialState, action: ListBlockAction):
                 openedCardId: null,
             };
         }
+
         default:
             return state;
     }
