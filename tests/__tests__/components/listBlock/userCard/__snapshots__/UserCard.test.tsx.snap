@@ -8,7 +8,9 @@ Object {
       <div
         class="list__card"
       >
-        <div>
+        <div
+          class="list__cardContentContainer"
+        >
           <p
             class="list__cardContent"
           >
@@ -42,7 +44,7 @@ Object {
         </div>
         <a
           class="list__more"
-          href="/user/3"
+          href="/users/user/3"
         >
           Подробнее
         </a>
@@ -53,7 +55,9 @@ Object {
     <div
       class="list__card"
     >
-      <div>
+      <div
+        class="list__cardContentContainer"
+      >
         <p
           class="list__cardContent"
         >
@@ -87,7 +91,7 @@ Object {
       </div>
       <a
         class="list__more"
-        href="/user/3"
+        href="/users/user/3"
       >
         Подробнее
       </a>
