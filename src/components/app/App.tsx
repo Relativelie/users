@@ -1,10 +1,12 @@
+import { useEffect } from 'react';
 import {
-    BrowserRouter as Router,
     Routes,
     Route,
     Navigate,
-} from 'react-router-dom';
+    unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useActions } from '../../hooks/useActions';
 import { ListBlock } from '../listBlock/ListBlock';
 import { CardBlock } from '../cardBlock/CardBlock';
 import { MenuBlock } from '../menuBlock/MenuBlock';
@@ -15,9 +17,21 @@ function App() {
     const { list, openedCardId } = useTypedSelector(
         (listBlockState) => listBlockState.listBlockReducer,
     );
+    const { closeCard, turnOffEditMode } = useActions();
+
+    const history = createBrowserHistory({ window });
+    useEffect(() => {
+        return history.listen(() => {
+            if (history.action === 'POP') {
+                closeCard();
+                turnOffEditMode();
+            }
+        });
+    }, [history]);
+
     return (
         <div className="App">
-            <Router>
+            <HistoryRouter history={history}>
                 <div className="container">
                     <MenuBlock list={list} />
                     <main className="container__info">
@@ -31,7 +45,7 @@ function App() {
                         </Routes>
                     </main>
                 </div>
-            </Router>
+            </HistoryRouter>
         </div>
     );
 }
